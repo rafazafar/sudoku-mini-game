@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku Mini Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Sudoku Mini Game</h1>
+        <div class="game-controls">
+            <button id="new-game">New Game</button>
+            <button id="solve">Solve</button>
+            <button id="clear">Clear</button>
+            <span id="difficulty">
+                Difficulty: 
+                <select id="difficulty-select">
+                    <option value="easy">Easy</option>
+                    <option value="medium">Medium</option>
+                    <option value="hard">Hard</option>
+                </select>
+            </span>
+        </div>
+        <div id="sudoku-grid" class="sudoku-grid"></div>
+        <div id="message" class="message"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
