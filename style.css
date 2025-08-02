@@ -156,6 +156,106 @@ input.cell-input {
     color: #f44336;
 }
 
+.number-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: opacity 0.3s ease;
+}
+
+.number-popup.hidden {
+    display: none;
+}
+
+.popup-content {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    min-width: 280px;
+    max-width: 320px;
+    animation: popupSlide 0.3s ease;
+}
+
+@keyframes popupSlide {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.popup-header {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.number-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.number-btn {
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.5em;
+    font-weight: bold;
+    padding: 15px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-height: 60px;
+}
+
+.number-btn:hover {
+    background: #5a6fd8;
+    transform: scale(1.05);
+}
+
+.number-btn:active {
+    transform: scale(0.95);
+}
+
+.delete-btn {
+    background: #f44336;
+    grid-column: span 1;
+}
+
+.delete-btn:hover {
+    background: #d32f2f;
+}
+
+.close-popup {
+    background: #757575;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 30px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.close-popup:hover {
+    background: #616161;
+}
+
 @media (max-width: 600px) {
     .container {
         padding: 20px;

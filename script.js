@@ -41,6 +41,40 @@ class SudokuGame {
                 this.placeNumber(0);
             }
         });
+
+        this.setupPopupEventListeners();
+    }
+
+    setupPopupEventListeners() {
+        const popup = document.getElementById('number-popup');
+        const numberButtons = document.querySelectorAll('.number-btn');
+        const closeButton = document.querySelector('.close-popup');
+
+        numberButtons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const number = parseInt(e.target.dataset.number);
+                this.placeNumber(number);
+                this.hidePopup();
+            });
+        });
+
+        closeButton.addEventListener('click', () => this.hidePopup());
+
+        popup.addEventListener('click', (e) => {
+            if (e.target === popup) {
+                this.hidePopup();
+            }
+        });
+    }
+
+    showPopup() {
+        const popup = document.getElementById('number-popup');
+        popup.classList.remove('hidden');
+    }
+
+    hidePopup() {
+        const popup = document.getElementById('number-popup');
+        popup.classList.add('hidden');
     }
 
     selectCell(index) {
@@ -49,6 +83,13 @@ class SudokuGame {
         
         this.selectedCell = index;
         cells[index].classList.add('selected');
+        
+        const row = Math.floor(index / 9);
+        const col = index % 9;
+        
+        if (this.grid[row][col] === 0 || !cells[index].classList.contains('given')) {
+            this.showPopup();
+        }
     }
 
     placeNumber(num) {
